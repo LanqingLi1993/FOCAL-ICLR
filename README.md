@@ -1,4 +1,5 @@
-### Hi there 👋
+## This is the repository for reproducing and verifying the algorithm and experiments in paper "EFFICIENTFULLY-OFFLINE META-REINFORCEMENT LEARNING VIA DISTANCE METRIC LEARNING AND BEHAVIOR REGULARIZATION", which is submitted to ICLR 2021
+### Code will come soon.
 
 <!--
 **FOCAL-ICLR/FOCAL-ICLR** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
