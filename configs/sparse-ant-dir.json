@@ -1,0 +1,37 @@
+{
+    "env_name": "sparse-ant-dir",
+    "n_train_tasks": 2,
+    "n_eval_tasks": 2,
+    "env_params": {
+        "n_tasks": 2,
+        "goal_radius": 3,
+        "forward_backward": 1,
+        "randomize_tasks": 0
+    },
+    "algo_params": {
+        "meta_batch": 4,
+        "num_iterations": 100,
+        "num_initial_steps": 2000,
+        "num_steps_prior": 400,
+        "num_steps_posterior": 0,
+        "num_extra_rl_steps_posterior": 600,
+        "num_train_steps_per_itr": 10000,
+        "num_evals": 5,
+        "num_steps_per_eval": 600,
+        "num_exp_traj_eval": 2,
+        "embedding_batch_size": 512,
+        "embedding_mini_batch_size": 512,
+        "data_dir": "",
+        "sample": 1,
+        "epoch": null,
+        "n_trj": 50,
+        "sparse_rewards": 1,
+        "alpha_init": 1e6,
+        "alpha_max": 5e6,
+        "train_epoch": null,
+        "eval_epoch": null
+    },
+    "util_params": {
+        "use_gpu": 1
+    }
+}

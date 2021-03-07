@@ -1,0 +1,33 @@
+{
+    "env_name": "sparse-walker-rand-params",
+    "n_train_tasks": 40,
+    "n_eval_tasks": 10,
+    "env_params": {
+        "n_tasks": 50,
+        "goal_radius": 0.5,
+        "randomize_tasks": 1 
+    },
+    "algo_params": {
+        "use_next_obs_in_context": true,
+        "meta_batch": 16,
+        "num_initial_steps": 2000,
+        "num_steps_prior": 400,
+        "num_steps_posterior": 0,
+        "num_extra_rl_steps_posterior": 600,
+        "num_train_steps_per_itr": 4000,
+        "num_evals": 2,
+        "num_steps_per_eval": 600,
+        "num_exp_traj_eval": 2,
+        "embedding_batch_size": 100,
+        "embedding_mini_batch_size": 100,
+        "sparse_rewards": 1,
+        "train_epoch": 850000,
+        "eval_epoch": 850000,
+        "n_trj": 50,
+        "use_brac": 1,
+        "use_information_bottleneck": 0,
+        "alpha_init": 1e4,
+        "alpha_max": 2e4,
+        "data_dir": ""
+    }
+}

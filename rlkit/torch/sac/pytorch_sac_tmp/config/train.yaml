@@ -1,0 +1,43 @@
+defaults:
+    - agent: sac
+
+env: cheetah_run
+
+
+# this needs to be specified manually
+experiment: test_exp
+
+#num_train_steps: 1e6
+num_train_steps: 5000
+replay_buffer_capacity: ${num_train_steps}
+
+num_seed_steps: 2000
+
+#eval_frequency: 10000
+eval_frequency: 200
+#num_eval_episodes: 10
+# deterministic evaluation by taking the mean of the distribution given by the actor
+num_eval_episodes: 1
+# stochastic evaluation by sampling from a distribution given by the actor
+num_eval_sample_episodes: 5
+
+#device: cuda
+device: cpu
+
+# logger
+#log_frequency: 10000
+log_frequency: 200
+log_save_tb: true
+
+# video recorder
+save_video: false
+
+
+seed: 1
+
+
+# hydra configuration
+hydra:
+    name: ${env}
+    run:
+        dir: ./exp/${now:%Y.%m.%d}/${now:%H%M}_${agent.name}_${experiment}

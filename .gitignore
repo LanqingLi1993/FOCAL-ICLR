@@ -1,0 +1,11 @@
+**/*.npy
+**/*.idea
+**/*.pyc
+**/*.DS_Store
+**/*.log
+**/*.png
+data/
+output/
+.vscode
+.ipynb_checkpoints
+
