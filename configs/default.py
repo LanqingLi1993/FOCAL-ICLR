@@ -57,17 +57,20 @@ default_config = dict(
         eval_epoch=6e5, # corresponding epoch of the model used to generate meta-testing trajectories, offline method (FOCAL) only
         divergence_name='kl', # divergence type in BRAC algo, offline method (FOCAL) only
         use_brac=False, # whether to use BRAC regularization (compare with batch PEARL)
+        use_value_penalty=True, # whether to use value penalty in BRAC, only effective if use_brac=True
         train_alpha=True, # whether to train alpha (BRAC)
         alpha_init=500., # Initialized value for alpha (BRAC)
         alpha_max=2000., # Maximum value for alpha
         target_divergence=0.05, # For training alpha adaptively. As in BEAR, if train_alpha=True, increase alpha when div > target_divergence, lower alpha when div < target_divergence (BRAC)
         max_entropy=True, # whether to include max-entropy term (as in SAC and PEARL) in value function
-        z_loss_weight=10, 
+        z_loss_weight=10, # z_loss weight
         use_next_obs_in_context=False, # use next obs if it is useful in distinguishing tasks
         allow_backward_z=False, # whether to allow gradients to flow back through z
         allow_eval=True, # if it is True, enable evaluation
         mb_replace=False, # meta batch sampling, replace or not
         dropout=0.1, # dropout for context encoder
+        # data_dir="./data/walker_randparam_new_norm", # default data directory
+        data_dir="./data/walker_randparam_new_norm", # default data directory
     ),
     util_params=dict(
         base_log_dir='output',

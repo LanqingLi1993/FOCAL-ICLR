@@ -4,8 +4,15 @@
 **/*.DS_Store
 **/*.log
 **/*.png
+**/*.csv
+**/*.zip
+**/*.swp
 data/
 output/
 .vscode
+.temp
 .ipynb_checkpoints
 
+
+# bkdevops prebuild
+.bk_pb/

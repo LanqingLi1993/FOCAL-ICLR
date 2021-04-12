@@ -39,9 +39,9 @@ import hydra
 #     return env
 
 class Workspace(object):
-    def __init__(self, cfg, env=None, mujoco=False, goal_idx=0):
+    def __init__(self, cfg, env_name, env=None, mujoco=False, goal_idx=0):
         self.work_dir = os.getcwd()
-        self.work_dir = os.path.join(self.work_dir, 'data', f'goal_idx{goal_idx}')
+        self.work_dir = os.path.join(self.work_dir, 'data', env_name, f'goal_idx{goal_idx}')
         os.makedirs(self.work_dir, exist_ok=True)
         print(f'workspace: {self.work_dir}')
 

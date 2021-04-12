@@ -19,7 +19,7 @@ class FOCALSoftActorCritic(OfflineMetaRLAlgorithm):
             eval_tasks,
             latent_dim,
             nets,
-            goal_radius,
+            goal_radius=1,
             optimizer_class=optim.Adam,
             plotter=None,
             render_eval_paths=False,
@@ -46,6 +46,7 @@ class FOCALSoftActorCritic(OfflineMetaRLAlgorithm):
         self.sparse_rewards                 = kwargs['sparse_rewards']
         self.use_next_obs_in_context        = kwargs['use_next_obs_in_context']
         self.use_brac                       = kwargs['use_brac']
+        self.use_value_penalty              = kwargs['use_value_penalty']
         self.alpha_max                      = kwargs['alpha_max']
         self._c_iter                        = kwargs['c_iter']
         self.train_alpha                    = kwargs['train_alpha']
@@ -287,7 +288,7 @@ class FOCALSoftActorCritic(OfflineMetaRLAlgorithm):
         self.loss["c_loss"] = c_loss.item()
 
         with torch.no_grad():
-            if self.use_brac:
+            if self.use_brac and self.use_value_penalty:
                 target_v_values = self.target_vf(t, b, next_obs, task_z) - self.get_alpha * div_estimate
                 #target_v_values = self.target_vf(t, b, next_obs, task_z)
             else:

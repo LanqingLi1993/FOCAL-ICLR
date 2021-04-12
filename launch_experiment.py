@@ -100,25 +100,45 @@ def experiment(variant, seed=None):
             rng = default_rng()
             train_tasks = rng.choice(len(tasks), size=variant['n_train_tasks'], replace=False)
             eval_tasks = set(range(len(tasks))).difference(train_tasks)
-            algorithm = FOCALSoftActorCritic(
-                env=env,
-                train_tasks=train_tasks,
-                eval_tasks=eval_tasks,
-                nets=[agent, qf1, qf2, vf, c],
-                latent_dim=latent_dim,
-                goal_radius=variant['env_params']['goal_radius'],
-                **variant['algo_params']
-            )
+            if 'goal_radius' in variant['env_params']:
+                algorithm = FOCALSoftActorCritic(
+                    env=env,
+                    train_tasks=train_tasks,
+                    eval_tasks=eval_tasks,
+                    nets=[agent, qf1, qf2, vf, c],
+                    latent_dim=latent_dim,
+                    goal_radius=variant['env_params']['goal_radius'],
+                    **variant['algo_params']
+                )
+            else:
+                algorithm = FOCALSoftActorCritic(
+                    env=env,
+                    train_tasks=list(tasks[:variant['n_train_tasks']]),
+                    eval_tasks=list(tasks[-variant['n_eval_tasks']:]),
+                    nets=[agent, qf1, qf2, vf, c],
+                    latent_dim=latent_dim,
+                    **variant['algo_params']
+                )
         else:
-            algorithm = FOCALSoftActorCritic(
-                env=env,
-                train_tasks=list(tasks[:variant['n_train_tasks']]),
-                eval_tasks=list(tasks[-variant['n_eval_tasks']:]),
-                nets=[agent, qf1, qf2, vf, c],
-                latent_dim=latent_dim,
-                goal_radius=variant['env_params']['goal_radius'],
-                **variant['algo_params']
-            )
+            if 'goal_radius' in variant['env_params']:
+                algorithm = FOCALSoftActorCritic(
+                    env=env,
+                    train_tasks=list(tasks[:variant['n_train_tasks']]),
+                    eval_tasks=list(tasks[-variant['n_eval_tasks']:]),
+                    nets=[agent, qf1, qf2, vf, c],
+                    latent_dim=latent_dim,
+                    goal_radius=variant['env_params']['goal_radius'],
+                    **variant['algo_params']
+                )
+            else:
+                algorithm = FOCALSoftActorCritic(
+                    env=env,
+                    train_tasks=list(tasks[:variant['n_train_tasks']]),
+                    eval_tasks=list(tasks[-variant['n_eval_tasks']:]),
+                    nets=[agent, qf1, qf2, vf, c],
+                    latent_dim=latent_dim,
+                    **variant['algo_params']
+                )
     else:
         NotImplemented
 

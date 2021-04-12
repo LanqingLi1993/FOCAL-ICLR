@@ -1,4 +1,4 @@
-name: envs
+name: focal_reproduction
 channels:
   - pytorch
   - defaults
@@ -142,7 +142,7 @@ dependencies:
     - nbconvert==5.6.1
     - nbformat==5.0.7
     - notebook==6.0.3
-    - numpy==1.19.1
+    - numpy==1.20.0
     - omegaconf==1.4.1
     - opencv-python==4.4.0.46
     - packaging==20.4

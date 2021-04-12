@@ -54,14 +54,15 @@ Output files will be written to `./output/[ENV]/[EXP NAME]` where the experiment
 
 To evaluate a learned policy after training has concluded, run `sim_policy.py`. This script will run a given policy across a set of evaluation tasks and optionally generate a video of these trajectories. Rendering is offline and the video is saved to the experiment folder.
 
-Example of running experiment on sparse-point-robot environment:
+Example of running experiment on walker_rand_params environment:
 
-- edit sparse-point-robot.json to add dump_eval_paths=1
-- run python launch_experiment.py ./configs/sparse-point-robot.json
+- download [data](https://drive.google.com/file/d/1dO77Qh0-0gk_rPF2wSp7hzjG_JfImuAz/view?usp=sharing) and unzip the data to `./data/walker_rand_params`
+- edit sparse-point-robot.json to add dump_eval_paths=1 and data_dir=`./data/walker_rand_params`
+- run python launch_experiment.py ./configs/walker_rand_params.json
 
 ## Reproducing Result in [FOCAL Paper](https://openreview.net/forum?id=8cpHIfgY4Dj)
 
-We provide code for reproducing figure 2-6 in generate_plot.py. Use [data](https://drive.google.com/file/d/1mMfJ_r25bH-PGiLh7vs3K63Fgnjfy90O/view?usp=sharing) to download the output files required for visualization and add them to `./output/` directory. To produce all figures at a time, run
+We provide code for reproducing figure 2-6 in generate_plot.py. Use [data](https://drive.google.com/file/d/1ZOF68UHCVAHPPEJBbYutfXpBD567J20U/view?usp=sharing) to download the output files required for visualization and add them to `./output/` directory. To produce all figures at a time, run
 ```
 python3 generate_plot.py
 ```

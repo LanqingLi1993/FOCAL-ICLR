@@ -11,6 +11,7 @@ from hydra.experimental import compose, initialize
 import argparse
 import multiprocessing as mp
 from multiprocessing import Pool
+from itertools import product
 
 from rlkit.envs.wrappers import NormalizedBoxEnv
 from rlkit.envs import ENVS
@@ -29,12 +30,16 @@ def deep_update_dict(fr, to):
 
 initialize(config_dir="rlkit/torch/sac/pytorch_sac/config/")
 cfg = compose("train.yaml")
-def experiment(cfg=cfg, env=None, eval=False, goal_idx=0):
+def experiment(variant, cfg=cfg, goal_idx=0, seed=0,  eval=False):
+    env = NormalizedBoxEnv(ENVS[variant['env_name']](**variant['env_params']))
+    if seed is not None:
+        env.seed(seed) 
+    env.reset_task(goal_idx)
     if "cuda" in cfg.device:
         os.environ["CUDA_VISIBLE_DEVICES"] = str(cfg.gpu_id)
     # NOTE: for new environment variable to be effective, torch should be imported after assignment
     from rlkit.torch.sac.pytorch_sac.train import Workspace
-    workspace = Workspace(cfg=cfg, env=env, goal_idx=goal_idx)
+    workspace = Workspace(cfg=cfg, env=env, env_name=variant['env_name'], goal_idx=goal_idx)
     if eval:
         print('evaluate:')
         workspace.run_evaluate()
@@ -52,21 +57,22 @@ def main(config, gpu, docker, debug, eval, goal_idx=0, seed=0):
     variant = default_config
     cwd = os.getcwd()
     files = os.listdir(cwd)
-    print(files)
     if config:
         with open(os.path.join(config)) as f:
             exp_params = json.load(f)
         variant = deep_update_dict(exp_params, variant)
     variant['util_params']['gpu_id'] = gpu
-    print(variant)
-    env = NormalizedBoxEnv(ENVS[variant['env_name']](**variant['env_params']))
-    
-    if seed is not None:
-        env.seed(seed) 
-    env.reset_task(goal_idx)
+
     cfg.gpu_id = gpu
-    print(cfg.agent)
-    experiment(cfg=cfg, env=env, eval=eval, goal_idx=goal_idx)
+    print('cfg.agent', cfg.agent)
+    print(list(range(variant['env_params']['n_tasks'])))
+    # multi-processing
+    p = mp.Pool(mp.cpu_count())
+    if variant['env_params']['n_tasks'] > 1:
+        p.starmap(experiment, product([variant], [cfg], list(range(variant['env_params']['n_tasks']))))
+    else:
+        experiment(variant=variant, cfg=cfg, goal_idx=goal_idx)
+
 
 if __name__ == '__main__':
     #add a change 

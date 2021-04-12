@@ -24,9 +24,12 @@
         "eval_epoch": 850000,
         "n_trj": 5,
         "use_brac": 1,
+        "use_value_penalty": 0,
+        "sparse_rewards": 0,
         "use_information_bottleneck": 0,
+        "allow_backward_z": 0,
+        "z_loss_weight": 10,
         "alpha_init": 1e4,
-        "alpha_max": 2e4,
-        "data_dir": ""
+        "alpha_max": 2e4
     }
 }

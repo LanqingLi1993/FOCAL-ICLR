@@ -1,0 +1,15 @@
+name: Test pipeline
+
+trigger:
+    branches:
+        include:
+        - master
+
+steps:
+  - taskType: codeCCScan@latest
+    displayName: codecc检查
+    inputs:
+      languages: 
+        - PYTHON
+      tools:
+        - CHECKSTYLE
