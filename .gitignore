@@ -17,3 +17,4 @@ output/
 
 # bkdevops prebuild
 .bk_pb/
+build.yml
