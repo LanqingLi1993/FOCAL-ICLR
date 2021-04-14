@@ -1,6 +1,8 @@
 # FOCAL: Efficient Fully-Offline Meta-Reinforcement Learning Via Distance Metric Learning and Behavior Regularization
+<!-- 
+> Meta-learning for offline reinforcement learning (OMRL) is an understudied problem with tremendous potential impact by enabling RL algorithms in many real-world applications. A popular solution to the problem is to infer task identity as augmented state using a context-based encoder, for which efficient learning of task representations remains an open challenge. In this work, we improve upon one of the SOTA OMRL algorithms, FOCAL, by incorporating intra-task attention mechanism and inter-task contrastive learning objectives for more effective task inference and learning of control. Theoretical analysis and experiments are presented to demonstrate the superior performance, efficiency and robustness of our end-to-end and model-free method compared to prior algorithms across multiple meta-RL benchmarks. -->
 
-> Meta-learning for offline reinforcement learning (OMRL) is an understudied problem with tremendous potential impact by enabling RL algorithms in many real-world applications. A popular solution to the problem is to infer task identity as augmented state using a context-based encoder, for which efficient learning of task representations remains an open challenge. In this work, we improve upon one of the SOTA OMRL algorithms, FOCAL, by incorporating intra-task attention mechanism and inter-task contrastive learning objectives for more effective task inference and learning of control. Theoretical analysis and experiments are presented to demonstrate the superior performance, efficiency and robustness of our end-to-end and model-free method compared to prior algorithms across multiple meta-RL benchmarks.
+We study the offline meta-reinforcement learning (OMRL) problem, a paradigmwhich enables reinforcement learning (RL) algorithms to quickly adapt to unseentasks without any interactions with the environments, making RL truly practical inmany real-world applications. This problem is still not fully understood, for whichtwo major challenges need to be addressed. First, offline RL usually suffers frombootstrapping errors of out-of-distribution state-actions which leads to divergenceof value functions.  Second, meta-RL requires efficient and robust task inferencelearned jointly with control policy.   In this work,  we enforce behavior regular-ization on learned policy as a general approach to offline RL, combined with adeterministic  context  encoder  for  efficient  task  inference.   We  propose  a  novelnegative-power distance metric on bounded context embedding space, whose gra-dients propagation is detached from the Bellman backup. We provide analysis andinsight showing that some simple design choices can yield substantial improve-ments over recent approaches involving meta-RL and distance metric learning.To the best of our knowledge, our method is the first model-free and end-to-endOMRL algorithm, which is computationally efficient and demonstrated to outper-form prior algorithms on several meta-RL benchmarks.
 
 ## Installation
 To install locally, you will need to first install [MuJoCo](https://www.roboti.us/index.html). For task distributions in which the reward function varies (Cheetah, Ant), install MuJoCo150 or plus. Set `LD_LIBRARY_PATH` to point to both the MuJoCo binaries (`/$HOME/.mujoco/mujoco200/bin`) as well as the gpu drivers (something like `/usr/lib/nvidia-390`, you can find your version by running `nvidia-smi`).
@@ -56,13 +58,13 @@ To evaluate a learned policy after training has concluded, run `sim_policy.py`. 
 
 Example of running experiment on walker_rand_params environment:
 
-- download [data](https://drive.google.com/file/d/1dO77Qh0-0gk_rPF2wSp7hzjG_JfImuAz/view?usp=sharing) and unzip the data to `./data/walker_rand_params`
+- download [walker data](https://drive.google.com/file/d/1dO77Qh0-0gk_rPF2wSp7hzjG_JfImuAz/view?usp=sharing) and unzip the data to `./data/walker_rand_params`
 - edit walker_rand_params.json to add dump_eval_paths=1 and data_dir=`./data/walker_rand_params`
 - run python launch_experiment.py ./configs/walker_rand_params.json
 
 ## Reproducing Result in [FOCAL Paper](https://openreview.net/forum?id=8cpHIfgY4Dj)
 
-We provide code for reproducing figure 2-9 and table 1 in generate_plot.py. Use [data](https://drive.google.com/file/d/1ZOF68UHCVAHPPEJBbYutfXpBD567J20U/view?usp=sharing) to download the output files required for visualization and add them to `./output/` directory. To produce all figures at a time, run
+We provide code for reproducing figure 2-9 and table 1 in generate_plot.py. Use [output data](https://drive.google.com/file/d/1ZOF68UHCVAHPPEJBbYutfXpBD567J20U/view?usp=sharing) to download the output files required for visualization and add them to `./output/` directory. To produce all figures at a time, run
 ```
 python3 generate_plot.py
 ```
