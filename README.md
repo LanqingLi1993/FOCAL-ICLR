@@ -62,7 +62,7 @@ Example of running experiment on walker_rand_params environment:
 
 ## Reproducing Result in [FOCAL Paper](https://openreview.net/forum?id=8cpHIfgY4Dj)
 
-We provide code for reproducing figure 2-6 in generate_plot.py. Use [data](https://drive.google.com/file/d/1ZOF68UHCVAHPPEJBbYutfXpBD567J20U/view?usp=sharing) to download the output files required for visualization and add them to `./output/` directory. To produce all figures at a time, run
+We provide code for reproducing figure 2-9 and table 1 in generate_plot.py. Use [data](https://drive.google.com/file/d/1ZOF68UHCVAHPPEJBbYutfXpBD567J20U/view?usp=sharing) to download the output files required for visualization and add them to `./output/` directory. To produce all figures at a time, run
 ```
 python3 generate_plot.py
 ```
