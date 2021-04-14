@@ -57,7 +57,7 @@ To evaluate a learned policy after training has concluded, run `sim_policy.py`. 
 Example of running experiment on walker_rand_params environment:
 
 - download [data](https://drive.google.com/file/d/1dO77Qh0-0gk_rPF2wSp7hzjG_JfImuAz/view?usp=sharing) and unzip the data to `./data/walker_rand_params`
-- edit sparse-point-robot.json to add dump_eval_paths=1 and data_dir=`./data/walker_rand_params`
+- edit walker_rand_params.json to add dump_eval_paths=1 and data_dir=`./data/walker_rand_params`
 - run python launch_experiment.py ./configs/walker_rand_params.json
 
 ## Reproducing Result in [FOCAL Paper](https://openreview.net/forum?id=8cpHIfgY4Dj)
