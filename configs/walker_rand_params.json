@@ -4,7 +4,7 @@
     "n_eval_tasks": 10,
     "env_params": {
         "n_tasks": 50,
-        "randomize_tasks": 1 
+        "randomize_tasks": 0
     }
     ,
     "algo_params": {
