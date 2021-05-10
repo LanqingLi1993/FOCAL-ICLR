@@ -34,7 +34,8 @@
         "n_trj": 50,
         "agent_type": "Contrastive",
         "data_dir": "/data1/PUBLIC/FOCAL-data/data_copy/sparse-point-robot",
-        "divergence_name": "kl"
+        "divergence_name": "kl",
+        "use_brac": 0
     },
     "util_params": {
         "use_gpu": 1

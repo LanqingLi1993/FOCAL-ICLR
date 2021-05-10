@@ -23,7 +23,8 @@
         "eval_epoch": null,
         "epoch": null,
         "n_trj": 50,
-        "sparse_rewards": 0
+        "sparse_rewards": 0,
+        "use_value_penalty": 1
     },
     "util_params": {
         "use_gpu": 1 

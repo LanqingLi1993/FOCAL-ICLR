@@ -27,7 +27,8 @@
         "alpha_init": 1e6,
         "alpha_max": 5e6,
         "train_epoch": null,
-        "eval_epoch": null
+        "eval_epoch": null,
+        "use_value_penalty": 1
     },
     "util_params": {
         "use_gpu": 1

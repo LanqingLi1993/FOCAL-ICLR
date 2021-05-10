@@ -56,7 +56,7 @@ default_config = dict(
         train_epoch=6e5, # corresponding epoch of the model used to generate meta-training trajectories, offline method (FOCAL) only
         eval_epoch=6e5, # corresponding epoch of the model used to generate meta-testing trajectories, offline method (FOCAL) only
         divergence_name='kl', # divergence type in BRAC algo, offline method (FOCAL) only
-        use_brac=False, # whether to use BRAC regularization (compare with batch PEARL)
+        use_brac=True, # whether to use BRAC regularization (compare with batch PEARL)
         use_value_penalty=False, # whether to use value penalty in BRAC, only effective if use_brac=True
         train_alpha=True, # whether to train alpha (BRAC)
         alpha_init=500., # Initialized value for alpha (BRAC)
