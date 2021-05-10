@@ -82,7 +82,8 @@ class WalkerRandParamsWrappedEnv(Walker2DRandParamsEnv):
                 param_sets.append(new_params)
         else:
             for i in range(n_tasks):
-                task_params = read_log_params(f"./data_copy/walker_randparam_new/goal_idx{i}/log.txt")
+                # task_params = read_log_params(f"./data_copy/walker_randparam_new/goal_idx{i}/log.txt")
+                task_params = read_log_params("./data/walker_rand_params/goal_idx{i}/log.txt")
 
                 param_sets.append(task_params)
 

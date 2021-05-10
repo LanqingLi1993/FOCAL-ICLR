@@ -20,16 +20,16 @@
         "num_exp_traj_eval": 2,
         "embedding_batch_size": 100,
         "embedding_mini_batch_size": 100,
-        "train_epoch": 850000,
-        "eval_epoch": 850000,
-        "n_trj": 5,
+        "train_epoch": null,
+        "eval_epoch": null,
+        "n_trj": 50,
         "use_brac": 1,
         "use_value_penalty": 0,
         "sparse_rewards": 0,
         "use_information_bottleneck": 0,
         "allow_backward_z": 0,
         "z_loss_weight": 10,
-        "alpha_init": 1e4,
-        "alpha_max": 2e4
+        "alpha_init": 5e1,
+        "alpha_max": 1e4
     }
 }
