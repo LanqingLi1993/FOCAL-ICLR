@@ -75,9 +75,9 @@ To produce each figure individually, run the function named by the corresponding
 ## References
 
 ```
-@inproceedings{li2021efficient,
-  title={Efficient Fully-Offline Meta-Reinforcement Learning via Distance Metric Learning and Behavior Regularization},
-  author={Li, Lanqing and Yang, Rui and Luo, Dijun},
+@inproceedings{li2021focal,
+  title={{FOCAL}: Efficient Fully-Offline Meta-Reinforcement Learning via Distance Metric Learning and Behavior Regularization},
+  author={Lanqing Li and Rui Yang and Dijun Luo},
   booktitle={International Conference on Learning Representations},
   year={2021},
   url={https://openreview.net/forum?id=8cpHIfgY4Dj}
