@@ -11,7 +11,7 @@ from rlkit.torch import pytorch_util as ptu
 from rlkit.torch.core import PyTorchModule
 from rlkit.torch.data_management.normalizer import TorchFixedNormalizer
 from rlkit.torch.modules import LayerNorm
-import rlkit.torch.transformer as transformer
+# import rlkit.torch.transformer as transformer
 
 def identity(x):
     return x

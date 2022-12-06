@@ -8,7 +8,7 @@ from rlkit.policies.base import ExplorationPolicy, Policy
 from rlkit.torch.distributions import TanhNormal
 from rlkit.torch.networks import Mlp
 from rlkit.torch.core import np_ify
-from rlkit.torch.transformer import BERT
+# from rlkit.torch.transformer import BERT
 
 
 LOG_SIG_MAX = 0
