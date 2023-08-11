@@ -35,7 +35,8 @@
         "data_dir": "",
         "divergence_name": "kl",
         "mp_count": 10,
-        "use_brac": 0
+        "use_brac": 0,
+        "use_next_obs_in_context": true
     },
     "util_params": {
         "use_gpu": 1
